@@ -40,7 +40,6 @@ app.post('/users/create', async (req, res) => {
         newsletter = false
     }
 
-    console.log(req.body)
     // Criando no DB
     await User.create({name, occupation, newsletter})
 
@@ -48,10 +47,22 @@ app.post('/users/create', async (req, res) => {
 })
 
 
-// Rota Home
-app.get('/', (req, res) => {
-    res.render('home');
+/* Rota GET ALL (Home) */
+app.get('/', async (req, res) => {
+    const users = await User.findAll({raw: true}) // raw para poder trazer os dados prontos
+    console.log(users)
+
+    res.render('home', {users: users});
 });
+
+/* Rota GET ID */
+app.get('/users/:id', async (req, res) => {
+    const id = req.params.id
+
+    const user = await User.findOne({ raw: true, where: {id: id} }) // Resgatando usuário por ID
+
+    res.render('userview', {user})
+})
 
 
 // Sincronização para a aplicação funcionar
