@@ -46,6 +46,13 @@ app.post('/users/create', async (req, res) => {
     res.redirect('/')
 })
 
+/* Rota DELETE */
+app.post('/users/delete/:id', async (req, res) => {
+    const id = req.params.id
+    await User.destroy({ where: {id: id} })
+
+    res.redirect('/')
+})
 
 /* Rota GET ALL (Home) */
 app.get('/', async (req, res) => {
