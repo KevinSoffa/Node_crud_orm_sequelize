@@ -2,6 +2,7 @@ import express from 'express';
 import exphbs from 'express-handlebars';
 import conn from './db/conn.mjs'
 import User from './models/User.mjs';
+import Address from './models/Address.mjs';
 
 
 const app = express();
