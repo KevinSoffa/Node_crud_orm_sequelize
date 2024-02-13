@@ -1,4 +1,4 @@
-# Node.js, Sequelize e MySQL <img height="50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"/><img height="50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"/><img height="50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original-wordmark.svg"/>
+# Node.js, Sequelize e MySQL <img height="50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"/> <img height="50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"/> <img height="50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original-wordmark.svg"/>
 
 
 
@@ -22,7 +22,7 @@ Este é um projeto desenvolvido em Node.js e Express.js, utilizando um banco de 
 ## Como Usar
 
 1. Certifique-se de ter o Node.js e o MySQL instalados em sua máquina.
-2. Clone este repositório: `git clone https://github.com/seu-usuario/seu-projeto.git`
+2. Clone este repositório: `git clone https://github.com/KevinSoffa/Node_crud_orm_sequelize`
 3. Instale as dependências do projeto: `npm install`
 4. Configure as credenciais do banco de dados no arquivo `./db/conn.mjs`.
 5. Execute o script de criação do banco de dados e tabelas, se necessário.
