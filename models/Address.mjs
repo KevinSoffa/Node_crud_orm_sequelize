@@ -19,6 +19,7 @@ const Address = db.define('Address', {
 })
 
 // Relação com User
+User.hasMany(Address)
 Address.belongsTo(User)
 
 export default Address

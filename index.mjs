@@ -1,8 +1,8 @@
-import express from 'express';
-import exphbs from 'express-handlebars';
-import conn from './db/conn.mjs'
-import User from './models/User.mjs';
 import Address from './models/Address.mjs';
+import exphbs from 'express-handlebars';
+import User from './models/User.mjs';
+import conn from './db/conn.mjs'
+import express from 'express';
 
 
 const app = express();
@@ -57,9 +57,12 @@ app.post('/users/delete/:id', async (req, res) => {
 /* Rota UPDATE */
 app.get('/users/edit/:id', async (req, res) => {
     const id = req.params.id
-    const user = await User.findOne({ raw: true, where: {id: id} })
-
-    res.render('useredit', {user})
+    try {
+        const user = await User.findOne({ include: Address, where: {id: id} }) // =>Address busca todos os endereços relacionados ao usuário
+        res.render('useredit', { user: user.get({ plain: true }) })
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 app.post('/users/update', async (req, res) => {
@@ -101,6 +104,36 @@ app.get('/users/:id', async (req, res) => {
     const user = await User.findOne({ raw: true, where: {id: id} }) // Resgatando usuário por ID
 
     res.render('userview', {user})
+})
+
+/* Rota para Cadastrar endereço (Relacional com User) */
+app.post('/address/create', async (req, res) => {
+    const UserId = req.body.UserId
+    const street = req.body.street
+    const number = req.body.number
+    const city = req.body.city
+
+    const address = {
+        UserId,
+        street,
+        number,
+        city
+    }
+
+    await Address.create(address)
+
+    res.redirect(`/users/edit/${UserId}`)
+})
+
+// Rota DELETE Address
+app.post('/address/delete', async (req, res) => {
+    const UserId = req.body.UserId
+    const id = req.body.id
+
+    await Address.destroy({
+        where: {id: id},
+    })
+    res.redirect(`/users/edit/${UserId}`)
 })
 
 
