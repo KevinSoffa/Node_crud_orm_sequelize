@@ -33,9 +33,9 @@ Este é um projeto desenvolvido em Node.js e Express.js, utilizando um banco de 
 
 - `./models`: Contém os modelos de dados para usuários e endereços.
 - `./db`: Contém a configuração de conexão com o banco de dados.
-- `./public`: Diretório para arquivos estáticos, como CSS, JavaScript, etc.
+- `./public`: Diretório para arquivos estáticos, como CSS.
 - `./views`: Diretório para os arquivos de template Handlebars.
-- `./app.js`: Arquivo principal da aplicação, onde são definidas as rotas e a configuração do Express.js.
+- `./index.mjs`: Arquivo principal da aplicação, onde são definidas as rotas e a configuração do Express.js.
 
 ## Contribuindo
 
